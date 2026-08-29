@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta
+      http-equiv="Content-Security-Policy"
+      content="default-src 'self'; script-src 'self'; style-src 'self'; img-src 'self' data:; media-src 'none'; connect-src 'none'; form-action 'none'"
+    />
+    <title>小小探索家</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <main id="app" class="app" aria-label="小小探索家宝宝游戏">
+      <section id="start-screen" class="screen start-screen" aria-labelledby="title">
+        <div class="start-card">
+          <div class="brand-mark" aria-hidden="true"><span></span><span></span><span></span></div>
+          <p class="eyebrow">亲子陪伴小游戏</p>
+          <h1 id="title">小小探索家</h1>
+          <p class="lead">按一按、动一动，看看会发生什么。</p>
+          <button id="start-button" class="primary-button" type="button">家长开始游戏</button>
+          <label class="sound-option">
+            <input id="sound-toggle" type="checkbox" />
+            <span>开启柔和提示音（默认静音）</span>
+          </label>
+          <p id="start-status" class="start-status" role="status"></p>
+          <p class="safety-note">建议家长陪同，每次游戏最多 5 分钟。</p>
+        </div>
+      </section>
+
+      <section id="play-screen" class="screen play-screen" aria-label="探索游戏区域">
+        <div id="stage" class="stage" aria-hidden="true"></div>
+        <div class="progress-track" aria-hidden="true"><div id="progress" class="progress"></div></div>
+      </section>
+
+      <section id="break-screen" class="screen break-screen" aria-live="polite">
+        <div class="break-card">
+          <div class="break-icon" aria-hidden="true">☁</div>
+          <h2>休息一下</h2>
+          <p>看看远处，眨眨眼。</p>
+        </div>
+      </section>
+
+      <section id="finish-screen" class="screen finish-screen" aria-live="polite">
+        <div class="finish-card">
+          <div class="finish-icon" aria-hidden="true">✦</div>
+          <h2>今天的探索完成啦</h2>
+          <p>和家长一起伸伸手、看看远处吧。</p>
+          <p class="finish-small">游戏已锁定，等待家长结束。</p>
+        </div>
+      </section>
+
+      <p id="exit-hint" class="exit-hint">家长退出：按住 Ctrl + Alt + Shift + Q 2 秒，再重复一次确认</p>
+
+      <div id="exit-overlay" class="exit-overlay" aria-live="assertive" aria-hidden="true">
+        <div class="exit-card">
+          <p id="exit-message">请继续按住组合键……</p>
+          <div class="hold-track" aria-hidden="true"><div id="hold-progress" class="hold-progress"></div></div>
+          <button id="exit-button" class="exit-button" type="button" hidden>结束游戏并退出全屏</button>
+        </div>
+      </div>
+    </main>
+    <script src="game.js" defer></script>
+  </body>
+</html>
